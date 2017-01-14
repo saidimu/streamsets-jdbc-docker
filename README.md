@@ -1,6 +1,9 @@
-#StreamSets Data Collector (with an SSH tunnel)
+#StreamSets Data Collector (with an SSH tunnel and JDBC drivers)
 
-This image extends the image below to add auto-creation of an SSH tunnel useful.
+This image extends the image below in the following ways:
+
+- auto-creation of an SSH tunnel
+- downloading of JDBC libraries (hard-coded for now)
 
 ## Requirements
 - This container must run as root because it copies the SSH keys to `/root` (not ideal)

@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# download and store JDBC libs
+/jdbc-libs.sh
+
 # setup and run an SSH tunnel
 /ssh-tunnel.sh
 
