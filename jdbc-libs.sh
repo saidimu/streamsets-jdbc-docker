@@ -2,7 +2,9 @@
 set -e
 
 # install OpenSSL libs for wget https
+# update tar to use --strip-components flag
 apk update
+apk --update add tar
 apk --no-cache add openssl ca-certificates wget
 update-ca-certificates
 
