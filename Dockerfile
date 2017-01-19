@@ -1,4 +1,6 @@
-FROM streamsets/datacollector:2.2.1.0
+#FROM streamsets/datacollector:2.2.1.0
+FROM streamsets/datacollector:2.1.0.1
+
 MAINTAINER Guido Schmutz <guido.schmutz@trivadis.com>
 
 # build time variable to pass the necessary stage libraries to isntall

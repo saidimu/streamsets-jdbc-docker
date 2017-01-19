@@ -21,7 +21,7 @@ MYSQL_JDBC_URL="https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-
 POSTGRES_JDBC_URL="https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar"
 
 ## the MySQL jar extracts into a folder, make sure to strip that folder
-wget "$MYSQL_JDBC_URL" -O - | tar -xz --strip-components=1
+wget --no-clobber "$MYSQL_JDBC_URL" -O - | tar -xz --strip-components=1
 
 ## the PostgreSQL jar is just a ... jar.
-wget "$POSTGRES_JDBC_URL"
+wget --no-clobber "$POSTGRES_JDBC_URL"
