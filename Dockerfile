@@ -18,5 +18,8 @@ RUN if [ "$ADD_LIBS" != "" ]; then ${SDC_DIST}/bin/streamsets stagelibs -install
 # copy the extended version of docker-entrypoint.sh into the image
 COPY docker-entrypoint.sh ssh-tunnel.sh jdbc-libs.sh /
 
+# copy custom configs
+COPY etc ${SDC_CONF}
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["dc", "-exec"]
