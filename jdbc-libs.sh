@@ -18,11 +18,14 @@ mkdir -p "$STREAMSETS_LIBRARIES_EXTRA_DIR/streamsets-datacollector-jdbc-lib/lib/
 cd "$STREAMSETS_LIBRARIES_EXTRA_DIR/streamsets-datacollector-jdbc-lib/lib/"
 
 ## MYSQL_JDBC_URL="https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.0.8.tar.gz"
-MYSQL_JDBC_URL="https://downloads.mariadb.com/Connectors/java/connector-java-1.5.7/mariadb-java-client-1.5.7.jar"
+MARIADB_JDBC_URL="https://downloads.mariadb.com/Connectors/java/connector-java-1.5.7/mariadb-java-client-1.5.7.jar"
 POSTGRES_JDBC_URL="https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar"
 
 ## the MySQL jar extracts into a folder, make sure to strip that folder
-wget --no-clobber "$MYSQL_JDBC_URL" -O - | tar -xz --strip-components=1
+#wget --no-clobber "$MYSQL_JDBC_URL" -O - | tar -xz --strip-components=1
+
+## the MariaDB jar is just a ... jar.
+wget --no-clobber "$MARIADB_JDBC_URL"
 
 ## the PostgreSQL jar is just a ... jar.
 wget --no-clobber "$POSTGRES_JDBC_URL"
