@@ -1,27 +1,8 @@
-#StreamSets Data Collector (with an SSH tunnel and JDBC drivers)
+#StreamSets Data Collector (with JDBC drivers)
 
-This image extends the image below in the following ways:
+This image extends this [StreamSets Data Collector](https://github.com/TrivadisBDS/dockerfiles/tree/master/streamsets) below in the following ways:
 
-- auto-creation of an SSH tunnel
 - downloading of JDBC libraries (hard-coded for now)
-
-## Requirements
-- This container must run as root because it copies the SSH keys to `/root` (not ideal)
-- The following environment variables are required:
-
-```
-SSH_ROOT -  the folder to copy the SSH keys to. Typically /root/.ssh
-```
-```
-SSH_PRIVATE_KEY - the private SSH key
-```
-```
-SSH_PUBLIC_KEY - the public SSH key
-```
-```
-SSH_TUNNEL_CMD - the actual SSH tunnel command. Something like
-
-ssh -fNL 3306:hostA:3306 user@anotherhost -o StrictHostKeyChecking=no -o ExitOnForwardFailure=yes -o BatchMode=yes -o ConnectionAttempts=3
 
 ```
 
@@ -36,7 +17,7 @@ Basic Usage
 docker run -p 18630:18630 -d
            --name sdc
            -e ADD_LIBS="streamsets-datacollector-apache-kafka_0_10-lib,streamsets-datacollector-apache-kudu-0_9-lib"     
-           trivadisbds/streamsets-datacollector:latest`
+           saidimu/streamsets-datacollector:latest`
 ```
 Detailed Usage
 --------------
@@ -48,7 +29,7 @@ The following example starts SDC with Kafka v0.10 and Kudu 0.9 libraries install
 docker run -p 18630:18630 -d
            --name sdc
            -e ADD_LIBS="streamsets-datacollector-apache-kafka_0_10-lib,streamsets-datacollector-apache-kudu-0_9-lib"     
-           trivadisbds/streamsets-datacollector:latest`
+           saidimu/streamsets-datacollector:latest`
 ```
 
 Building your own version
@@ -59,5 +40,5 @@ If you want to build your own dockerized SDC images containing a specific config
 ```
 docker build
      --build-arg ADD_LIBS="streamsets-datacollector-apache-kafka_0_10-lib,streamsets-datacollector-apache-kudu-0_9-lib"
-     -t trivadisbds/streamsets-datacollector-kafka-kudu:2.1.0.1 .
+     -t saidimu/streamsets-datacollector-kafka-kudu:2.1.0.1 .
 ```

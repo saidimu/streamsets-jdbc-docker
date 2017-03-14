@@ -4,9 +4,6 @@ set -e
 # download and store JDBC libs
 /jdbc-libs.sh
 
-# setup and run an SSH tunnel
-/ssh-tunnel.sh
-
 # We translate environment variables to sdc.properties and rewrite them.
 set_conf() {
   if [ $# -ne 2 ]; then
