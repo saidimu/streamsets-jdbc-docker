@@ -1,5 +1,6 @@
-# FROM streamsets/datacollector:2.2.1.0
-FROM streamsets/datacollector:2.3.0.1
+# FROM streamsets/datacollector:2.4.0.0
+# FROM streamsets/datacollector:2.3.0.1
+FROM streamsets/datacollector:2.2.1.0
 # FROM streamsets/datacollector:2.1.0.1
 
 MAINTAINER Said Apale <saidimu@gmail.com>
