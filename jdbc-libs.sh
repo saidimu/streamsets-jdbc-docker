@@ -11,10 +11,13 @@ update-ca-certificates
 # check for mandatory environment variables and exit if not defined
 [[ -z "$STREAMSETS_LIBRARIES_EXTRA_DIR" ]] && { echo "Please specify where to store the JDBC libraries." ; exit 1; }
 
-## make sure we're in the dir that Streamsets expects the JDBC jars to be in
-## and that the dir exists or create it if it doesn't
-mkdir -p "$STREAMSETS_LIBRARIES_EXTRA_DIR/streamsets-datacollector-jdbc-lib/lib/"
-cd "$STREAMSETS_LIBRARIES_EXTRA_DIR/streamsets-datacollector-jdbc-lib/lib/"
+JDBC_STAGE_FOLDER="streamsets-datacollector-jdbc-lib"
+MYSQL_BINLOG_STAGE_FOLDER="streamsets-datacollector-mysql-binlog-lib"
 
-## copy the baked-in JDBC jars to the Streamsets folder
-cp /jdbc-libs/* .
+## create folders if they don't already exist 
+mkdir -p $STREAMSETS_LIBRARIES_EXTRA_DIR/{$JDBC_STAGE_FOLDER,$MYSQL_BINLOG_STAGE_FOLDER}/lib/
+
+## copy the baked-in JDBC jars to the JDBC libs folder
+cp /jdbc-libs/* $STREAMSETS_LIBRARIES_EXTRA_DIR/$JDBC_STAGE_FOLDER/lib/
+cp /jdbc-libs/* $STREAMSETS_LIBRARIES_EXTRA_DIR/$MYSQL_BINLOG_STAGE_FOLDER/lib/
+
