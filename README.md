@@ -2,7 +2,7 @@
 
 This image extends this [StreamSets Data Collector](https://github.com/TrivadisBDS/dockerfiles/tree/master/streamsets) below in the following ways:
 
-- downloading of JDBC libraries (hard-coded for now)
+- JDBC libraries baked into the Docker image (MySQL, MariaDB and Postgres)
 
 ```
 
